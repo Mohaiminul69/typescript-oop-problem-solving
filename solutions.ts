@@ -14,3 +14,11 @@ const processInput: processInputType = (input) => {
 
   return input ? "Active" : "Inactive";
 };
+
+type Coordinate = readonly [number, number, string];
+
+const formatCoordinate = (coordinate: Coordinate): string => {
+  const [latitude, longitude, locationName] = coordinate;
+
+  return `Location: ${locationName} (${latitude}, ${longitude})`;
+};
