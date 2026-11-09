@@ -22,3 +22,13 @@ const formatCoordinate = (coordinate: Coordinate): string => {
 
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
+
+const concatenateArrays = <T>(...arrays: T[][]): T[] => {
+  const combined: T[] = [];
+
+  for (const array of arrays) {
+    combined.push(...array);
+  }
+
+  return combined;
+};
