@@ -1,9 +1,10 @@
 const multiplyValue = (value: number, multiplier: number = 2): number =>
   value * multiplier;
 
-type processInputType = (input: string | number | boolean) => string | number;
+type InputValue = string | number | boolean;
+type ProcessedValue = string | number;
 
-const processInput: processInputType = (input) => {
+const processInput = (input: InputValue): ProcessedValue => {
   if (typeof input === "string") {
     return input.trim().toLowerCase();
   }
@@ -72,3 +73,12 @@ class Manager extends Employee {
     return `Manager of ${this.department}: ${this.name}`;
   }
 }
+
+const validateAgeAsync = (age: number): Promise<string> =>
+  new Promise<string>((resolve, reject): void => {
+    if (age >= 18) {
+      setTimeout((): void => resolve("Access Granted"), 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
