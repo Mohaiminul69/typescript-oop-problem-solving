@@ -32,3 +32,15 @@ const concatenateArrays = <T>(...arrays: T[][]): T[] => {
 
   return combined;
 };
+
+interface Course {
+  title: string;
+  students: number;
+  isPublished: boolean;
+}
+
+const getPopularCourses = (courses: Course[], minStudents: number): Course[] =>
+  courses.filter(
+    (course: Course): boolean =>
+      course.isPublished && course.students >= minStudents,
+  );
